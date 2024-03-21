@@ -1,4 +1,4 @@
-# Zobaze Refactor Task
+# Refactor Android App
 
 Zobaze Refactor Task is an Android application designed to showcase modern Android development practices, including dependency injection with Hilt, network communication with Retrofit, and a clean architecture approach with Model-View-ViewModel (MVVM) pattern.
 
