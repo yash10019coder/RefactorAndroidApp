@@ -2,8 +2,8 @@ package com.zobaze.zobazerefractortask.ui.employee
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yash10019coder.data.backend.model.NetworkResult
 import com.yash10019coder.data.backend.controller.EmployeeController
+import com.yash10019coder.data.backend.model.NetworkResult
 import com.zobaze.zobazerefractortask.databinding.EmployeeListModel
 import com.zobaze.zobazerefractortask.mappers.UiMappers.mapEmployeeDtoToUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EmployeeViewModel @Inject constructor(
-    private val employeeController: com.yash10019coder.data.backend.controller.EmployeeController
+    private val employeeController: EmployeeController
 ) : ViewModel() {
     private val _employeeList = MutableStateFlow<List<EmployeeListModel>>(emptyList())
     val employeeList = _employeeList.asStateFlow()

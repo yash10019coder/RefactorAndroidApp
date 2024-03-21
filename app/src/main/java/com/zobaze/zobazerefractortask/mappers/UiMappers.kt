@@ -4,7 +4,7 @@ import com.yash10019coder.data.backend.controller.EmployeeDto
 import com.zobaze.zobazerefractortask.databinding.EmployeeListModel
 
 object UiMappers {
-    fun List<com.yash10019coder.data.backend.controller.EmployeeDto>.mapEmployeeDtoToUiModel(): List<EmployeeListModel> {
+    fun List<EmployeeDto>.mapEmployeeDtoToUiModel(): List<EmployeeListModel> {
         val list = this
         return list.map {
             EmployeeListModel(
