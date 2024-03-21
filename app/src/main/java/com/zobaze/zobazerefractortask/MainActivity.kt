@@ -5,6 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.zobaze.zobazerefractortask.databinding.ActivityMainBinding
+import com.zobaze.zobazerefractortask.ui.employee.EmployeeFragment
+import dagger.hilt.android.AndroidEntryPoint
 import org.json.JSONObject
 import java.io.InputStream
 import java.net.HttpURLConnection
@@ -12,14 +17,24 @@ import java.net.URL
 import java.util.Scanner
 
 
-
-class MainActivity : Activity() {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
     var containerLayout: LinearLayout? = null
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main)
-        containerLayout = findViewById<LinearLayout>(R.id.ll)
-        loadDataFromServer()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val employeeFragment: Fragment = EmployeeFragment.newInstance()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container_view, employeeFragment)
+            .commit()
+
+
+//        setContentView(R.layout.activity_main)
+//        containerLayout = findViewById<LinearLayout>(R.id.ll)
+//        loadDataFromServer()
     }
 
     private fun loadDataFromServer() {
@@ -49,9 +64,9 @@ class MainActivity : Activity() {
                             val viewww: View =
                                 layoutInflater.inflate(R.layout.item_list_view, null)
                             val nameView =
-                                viewww.findViewById<TextView>(R.id.ennnnn)
+                                viewww.findViewById<TextView>(R.id.tv_employee_name)
                             val idView =
-                                viewww.findViewById<TextView>(R.id.idddd)
+                                viewww.findViewById<TextView>(R.id.tv_item_number)
                             nameView.text = usr.getString("employee_name")
                             idView.text = id.toString()
                             containerLayout!!.addView(viewww)
@@ -66,9 +81,9 @@ class MainActivity : Activity() {
                             val employeeView: View =
                                 layoutInflater.inflate(R.layout.item_list_view, null)
                             val nameView =
-                                employeeView.findViewById<TextView>(R.id.ennnnn)
+                                employeeView.findViewById<TextView>(R.id.tv_employee_name)
                             val idView =
-                                employeeView.findViewById<TextView>(R.id.idddd)
+                                employeeView.findViewById<TextView>(R.id.tv_item_number)
                             nameView.text = employee.getString("employee_name")
                             idView.text = id.toString()
                             containerLayout!!.addView(employeeView)
@@ -83,9 +98,9 @@ class MainActivity : Activity() {
                             val employeeView: View =
                                 layoutInflater.inflate(R.layout.item_list_view, null)
                             val nameView =
-                                employeeView.findViewById<TextView>(R.id.ennnnn)
+                                employeeView.findViewById<TextView>(R.id.tv_employee_name)
                             val idView =
-                                employeeView.findViewById<TextView>(R.id.idddd)
+                                employeeView.findViewById<TextView>(R.id.tv_item_number)
                             nameView.text = employee.getString("employee_name")
                             idView.text = id.toString()
                             containerLayout!!.addView(employeeView)
@@ -97,7 +112,6 @@ class MainActivity : Activity() {
             }
         }.start()
     }
-
 
 
     private fun convertStreamToString(`is`: InputStream): String {
