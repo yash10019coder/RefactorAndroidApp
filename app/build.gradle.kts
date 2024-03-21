@@ -15,7 +15,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-//        multiDexEnabled = true
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -52,7 +52,6 @@ val multidex_version: String by rootProject
 
 dependencies {
 
-    implementation(project(":data"))
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
@@ -75,5 +74,16 @@ dependencies {
     // Timber
     implementation("com.jakewharton.timber:timber:5.0.1")
 
+    implementation("androidx.multidex:multidex:$multidex_version")
+
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
+
+    //Okhttp
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    //Multidex
     implementation("androidx.multidex:multidex:$multidex_version")
 }

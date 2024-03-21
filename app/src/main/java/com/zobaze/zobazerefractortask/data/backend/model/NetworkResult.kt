@@ -1,4 +1,4 @@
-package com.yash10019coder.data.backend.model
+package com.zobaze.zobazerefractortask.data.backend.model
 
 import retrofit2.HttpException
 import retrofit2.Response

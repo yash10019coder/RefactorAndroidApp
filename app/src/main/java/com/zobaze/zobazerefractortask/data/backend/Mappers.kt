@@ -1,7 +1,7 @@
-package com.yash10019coder.data.backend
+package com.zobaze.zobazerefractortask.data.backend
 
-import com.yash10019coder.data.backend.model.EmployeeResponse
-import com.yash10019coder.data.backend.controller.EmployeeDto
+import com.zobaze.zobazerefractortask.data.backend.model.EmployeeResponse
+import com.zobaze.zobazerefractortask.data.backend.controller.EmployeeDto
 
 object Mappers {
     fun EmployeeResponse.mapEmployeeResponseToDto(): List<EmployeeDto> {

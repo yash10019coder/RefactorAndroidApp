@@ -15,5 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Zobaze Refractor Task"
 include(":app")
-include(":data")
-include(":domain")

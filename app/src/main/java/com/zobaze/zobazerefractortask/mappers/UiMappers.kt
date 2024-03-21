@@ -1,6 +1,6 @@
 package com.zobaze.zobazerefractortask.mappers
 
-import com.yash10019coder.data.backend.controller.EmployeeDto
+import com.zobaze.zobazerefractortask.data.backend.controller.EmployeeDto
 import com.zobaze.zobazerefractortask.databinding.EmployeeListModel
 
 object UiMappers {

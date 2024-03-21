@@ -2,8 +2,8 @@ package com.zobaze.zobazerefractortask.ui.employee
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yash10019coder.data.backend.controller.EmployeeController
-import com.yash10019coder.data.backend.model.NetworkResult
+import com.zobaze.zobazerefractortask.data.backend.controller.EmployeeController
+import com.zobaze.zobazerefractortask.data.backend.model.NetworkResult
 import com.zobaze.zobazerefractortask.databinding.EmployeeListModel
 import com.zobaze.zobazerefractortask.mappers.UiMappers.mapEmployeeDtoToUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +22,8 @@ class EmployeeViewModel @Inject constructor(
     val employeeList = _employeeList.asStateFlow()
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
+    private val _error = MutableStateFlow<String?>(null)
+    val error = _error.asStateFlow()
 
     init {
         viewModelScope.launch {
@@ -51,12 +53,15 @@ class EmployeeViewModel @Inject constructor(
 
                 is NetworkResult.Error -> {
                     Timber.e("Error: message is ${result.message} and code is ${result.code}")
+                    _error.value = result.message
                 }
 
                 is NetworkResult.Exception -> {
                     Timber.e(result.exception, "Exception: ${result.exception}")
+                    _error.value = result.exception.message
                 }
             }
+            _isLoading.value = false
         }
     }
 }

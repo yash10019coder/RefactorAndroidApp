@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.snackbar.Snackbar
 import com.zobaze.zobazerefractortask.R
 import com.zobaze.zobazerefractortask.databinding.FragmentEmployeeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,6 +56,14 @@ class EmployeeFragment : Fragment() {
                     binding.progressBar.visibility = View.VISIBLE
                 } else {
                     binding.progressBar.visibility = View.GONE
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            viewModel.error.collect {
+                if (it != null) {
+                    Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
                 }
             }
         }
