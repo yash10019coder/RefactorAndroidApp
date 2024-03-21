@@ -10,4 +10,5 @@ rootProject.ext {
     set("dagger_version", "2.51")
     set("hilt_version", "1.0.0-alpha03")
     set("hilt_compiler", "1.0.0")
+    set("multidex_version", "2.0.1")
 }

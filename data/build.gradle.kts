@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         minSdk = 16
-
+        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -34,9 +34,14 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 val dagger_version: String by rootProject
 val hilt_version: String by rootProject
 val hilt_compiler: String by rootProject
+val multidex_version: String by rootProject
 
 dependencies {
 
@@ -52,11 +57,13 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
-    //Okhttp
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+//    Okhttp
+//    implementation("com.squareup.okhttp3:okhttp:4.12.0")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:$dagger_version")
     kapt("com.google.dagger:hilt-compiler:$dagger_version")
     kapt("androidx.hilt:hilt-compiler:$hilt_compiler")
+
+    implementation("androidx.multidex:multidex:$multidex_version")
 }
