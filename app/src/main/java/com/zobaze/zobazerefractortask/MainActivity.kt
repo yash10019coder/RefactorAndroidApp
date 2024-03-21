@@ -47,7 +47,7 @@ class MainActivity : Activity() {
                     if (id % 3 == 0) {
                         runOnUiThread {
                             val viewww: View =
-                                layoutInflater.inflate(R.layout.listttttt, null)
+                                layoutInflater.inflate(R.layout.item_list_view, null)
                             val nameView =
                                 viewww.findViewById<TextView>(R.id.ennnnn)
                             val idView =
@@ -64,7 +64,7 @@ class MainActivity : Activity() {
                     if (id % 7 == 0) {
                         runOnUiThread {
                             val employeeView: View =
-                                layoutInflater.inflate(R.layout.listttttt, null)
+                                layoutInflater.inflate(R.layout.item_list_view, null)
                             val nameView =
                                 employeeView.findViewById<TextView>(R.id.ennnnn)
                             val idView =
@@ -81,7 +81,7 @@ class MainActivity : Activity() {
                     if (id % 4 == 0) {
                         runOnUiThread {
                             val employeeView: View =
-                                layoutInflater.inflate(R.layout.listttttt, null)
+                                layoutInflater.inflate(R.layout.item_list_view, null)
                             val nameView =
                                 employeeView.findViewById<TextView>(R.id.ennnnn)
                             val idView =
